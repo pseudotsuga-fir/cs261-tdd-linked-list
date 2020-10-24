@@ -10,6 +10,7 @@
 class LinkedList:
 
     def __init__(self, value=None):
+        print("Linked List Created")
         self.value = value
         self.next = self
         self.prev = self
@@ -25,15 +26,29 @@ class LinkedList:
         return True
     
     def is_last(self):
-        if self.is_sentinel():
+        if self.next.is_sentinel():
             return True
         return False
     
     def last(self):
-        return self
+        if self.next.is_last():
+            return self.next
+        self.next.last()
     
     def append(self, item):
+        print("I am appending and ")
+        if self.is_empty():
+            print("I went in empty")
+            self.next = item
+            self.prev = item
+            item.next = self
+            item.prev = self
+            return
+        if self.is_sentinel():
+            print("I went in sentinel")
+            self.next.append(item)
+            return
         self.next = item
-        self.prev = item
+        item.prev = self
 
     pass
