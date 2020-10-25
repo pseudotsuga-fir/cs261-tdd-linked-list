@@ -62,10 +62,7 @@ class LinkedList:
         self.next = item
 
     def insert_in_order(self, item):
-        print("I am inserting " + str(item.value)
-        )
         if self.is_empty():
-            print("Is empty")
             self.append(item)
             return
         if self.next.value != None and item.value > self.next.value:
