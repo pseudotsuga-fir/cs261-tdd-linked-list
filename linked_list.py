@@ -10,7 +10,6 @@
 class LinkedList:
 
     def __init__(self, value=None):
-        print("Linked List Created")
         self.value = value
         self.next = self
         self.prev = self
@@ -31,24 +30,60 @@ class LinkedList:
         return False
     
     def last(self):
-        if self.next.is_last():
-            return self.next
-        self.next.last()
+        if self.is_last():
+            return self
+        return self.next.last()
+        
     
     def append(self, item):
-        print("I am appending and ")
         if self.is_empty():
-            print("I went in empty")
             self.next = item
             self.prev = item
             item.next = self
             item.prev = self
             return
-        if self.is_sentinel():
-            print("I went in sentinel")
-            self.next.append(item)
+        if self.is_last():
+            temp = self.next
+            self.next = item
+            item.next = temp
+            item.prev = self
+            item.next.prev = item
             return
-        self.next = item
+        self.next.append(item)
+
+    def delete(self):
+        self.prev.next = self.next
+        self.next.prev = self.prev
+
+    def insert(self, item):
+        item.next = self.next
         item.prev = self
+        self.next.prev = item
+        self.next = item
+
+    def insert_in_order(self, item):
+        print("I am inserting " + str(item.value)
+        )
+        if self.is_empty():
+            print("Is empty")
+            self.append(item)
+            return
+        if self.next.value != None and item.value > self.next.value:
+            self.next.insert_in_order(item)
+            return
+        self.insert(item)
+        
+    def at(self, i, place=0):
+        if place == i:
+            return self
+        return self.next.at(i, place + 1)
+    
+    def search(self, item):
+        if self.value == item:
+            return self
+        if self.is_last():
+            return None
+        return self.next.search(item)
+
 
     pass

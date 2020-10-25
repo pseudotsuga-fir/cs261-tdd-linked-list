@@ -231,195 +231,195 @@ class TestLinkedList(unittest.TestCase):
         ll.append(third_node)
         self.assertEqual(second_node, third_node.prev)
 
-    # def test_append_to_two_node_list_sets_next_of_third_node_to_sentinel(self):
-    #     """
-    #     When appending to a two-node list, the third node's `next` is the sentinel.
-    #     """
-    #     ll = LinkedList()
-    #     second_node = LinkedList(fake_value())
-    #     third_node = LinkedList(fake_value())
-    #     ll.append(second_node)
-    #     ll.append(third_node)
-    #     self.assertEqual(ll, third_node.next)
+    def test_append_to_two_node_list_sets_next_of_third_node_to_sentinel(self):
+        """
+        When appending to a two-node list, the third node's `next` is the sentinel.
+        """
+        ll = LinkedList()
+        second_node = LinkedList(fake_value())
+        third_node = LinkedList(fake_value())
+        ll.append(second_node)
+        ll.append(third_node)
+        self.assertEqual(ll, third_node.next)
 
-    # def test_append_to_two_node_list_sets_prev_of_sentinel_to_third_node(self):
-    #     """
-    #     When appending to a two-node list, the sentinel's `prev` is the third node.
-    #     """
-    #     ll = LinkedList()
-    #     second_node = LinkedList(fake_value())
-    #     third_node = LinkedList(fake_value())
-    #     ll.append(second_node)
-    #     ll.append(third_node)
-    #     self.assertEqual(third_node, ll.prev)
+    def test_append_to_two_node_list_sets_prev_of_sentinel_to_third_node(self):
+        """
+        When appending to a two-node list, the sentinel's `prev` is the third node.
+        """
+        ll = LinkedList()
+        second_node = LinkedList(fake_value())
+        third_node = LinkedList(fake_value())
+        ll.append(second_node)
+        ll.append(third_node)
+        self.assertEqual(third_node, ll.prev)
 
-    # """
-    # Three-Node List
-    # """
+    """
+    Three-Node List
+    """
 
-    # def test_last_of_three_nodes(self):
-    #     """
-    #     In a three-node list, the third node is the last node.
-    #     """
-    #     ll = LinkedList()
-    #     second_node = LinkedList(fake_value())
-    #     third_node = LinkedList(fake_value())
-    #     ll.append(second_node)
-    #     ll.append(third_node)
-    #     self.assertEqual(third_node, ll.last())
+    def test_last_of_three_nodes(self):
+        """
+        In a three-node list, the third node is the last node.
+        """
+        ll = LinkedList()
+        second_node = LinkedList(fake_value())
+        third_node = LinkedList(fake_value())
+        ll.append(second_node)
+        ll.append(third_node)
+        self.assertEqual(third_node, ll.last())
 
-    # def test_append_to_three_node_list(self):
-    #     """
-    #     When appending to three-node list, the fourth node should be inserted
-    #     between the third node and the sentinel node.
-    #     """
-    #     ll = LinkedList()
-    #     second_node = LinkedList(fake_value())
-    #     third_node = LinkedList(fake_value())
-    #     fourth_node = LinkedList(fake_value())
-    #     ll.append(second_node)
-    #     ll.append(third_node)
-    #     ll.append(fourth_node)
-    #     self.assertEqual(fourth_node, ll.prev)
-    #     self.assertEqual(ll, fourth_node.next)
-    #     self.assertEqual(third_node, fourth_node.prev)
-    #     self.assertEqual(fourth_node, third_node.next)
+    def test_append_to_three_node_list(self):
+        """
+        When appending to three-node list, the fourth node should be inserted
+        between the third node and the sentinel node.
+        """
+        ll = LinkedList()
+        second_node = LinkedList(fake_value())
+        third_node = LinkedList(fake_value())
+        fourth_node = LinkedList(fake_value())
+        ll.append(second_node)
+        ll.append(third_node)
+        ll.append(fourth_node)
+        self.assertEqual(fourth_node, ll.prev)
+        self.assertEqual(ll, fourth_node.next)
+        self.assertEqual(third_node, fourth_node.prev)
+        self.assertEqual(fourth_node, third_node.next)
 
-    # """
-    # Deletion
-    # """
+    """
+    Deletion
+    """
 
-    # def test_delete(self):
-    #     """
-    #     Deleting a node from the middle of a list removes it from the list.
-    #     """
-    #     ll = LinkedList()
-    #     second_node = LinkedList(fake_value())
-    #     third_node = LinkedList(fake_value())
-    #     fourth_node = LinkedList(fake_value())
-    #     ll.append(second_node)
-    #     ll.append(third_node)
-    #     ll.append(fourth_node)
-    #     third_node.delete()
-    #     self.assertEqual(fourth_node, second_node.next)
-    #     self.assertEqual(second_node, fourth_node.prev)
+    def test_delete(self):
+        """
+        Deleting a node from the middle of a list removes it from the list.
+        """
+        ll = LinkedList()
+        second_node = LinkedList(fake_value())
+        third_node = LinkedList(fake_value())
+        fourth_node = LinkedList(fake_value())
+        ll.append(second_node)
+        ll.append(third_node)
+        ll.append(fourth_node)
+        third_node.delete()
+        self.assertEqual(fourth_node, second_node.next)
+        self.assertEqual(second_node, fourth_node.prev)
 
-    # """
-    # Insertion
-    # """
+    """
+    Insertion
+    """
 
-    # def test_insert(self):
-    #     """
-    #     Inserting a node between two nodes places it between the two nodes.
-    #     """
-    #     ll = LinkedList()
-    #     second_node = LinkedList(fake_value())
-    #     third_node = LinkedList(fake_value())
-    #     insertee = LinkedList(fake_value())
-    #     ll.append(second_node)
-    #     ll.append(third_node)
-    #     second_node.insert(insertee)
-    #     self.assertEqual(insertee, second_node.next)
-    #     self.assertEqual(second_node, insertee.prev)
-    #     self.assertEqual(insertee, third_node.prev)
-    #     self.assertEqual(third_node, insertee.next)
+    def test_insert(self):
+        """
+        Inserting a node between two nodes places it between the two nodes.
+        """
+        ll = LinkedList()
+        second_node = LinkedList(fake_value())
+        third_node = LinkedList(fake_value())
+        insertee = LinkedList(fake_value())
+        ll.append(second_node)
+        ll.append(third_node)
+        second_node.insert(insertee)
+        self.assertEqual(insertee, second_node.next)
+        self.assertEqual(second_node, insertee.prev)
+        self.assertEqual(insertee, third_node.prev)
+        self.assertEqual(third_node, insertee.next)
 
-    # """
-    # Retrieval
-    # """
+    """
+    Retrieval
+    """
 
-    # def test_at(self):
-    #     """
-    #     At(N) returns the Nth node in the list (where 0 is the sentinel.)
-    #     """
-    #     ll = LinkedList()
-    #     second_node = LinkedList(fake_value())
-    #     third_node = LinkedList(fake_value())
-    #     fourth_node = LinkedList(fake_value())
-    #     ll.append(second_node)
-    #     ll.append(third_node)
-    #     ll.append(fourth_node)
-    #     self.assertEqual(second_node, ll.at(1))
-    #     self.assertEqual(third_node, ll.at(2))
-    #     self.assertEqual(fourth_node, ll.at(3))
+    def test_at(self):
+        """
+        At(N) returns the Nth node in the list (where 0 is the sentinel.)
+        """
+        ll = LinkedList()
+        second_node = LinkedList(fake_value())
+        third_node = LinkedList(fake_value())
+        fourth_node = LinkedList(fake_value())
+        ll.append(second_node)
+        ll.append(third_node)
+        ll.append(fourth_node)
+        self.assertEqual(second_node, ll.at(1))
+        self.assertEqual(third_node, ll.at(2))
+        self.assertEqual(fourth_node, ll.at(3))
 
-    # """
-    # Search
-    # """
+    """
+    Search
+    """
 
-    # def test_search_returns_none_when_not_found(self):
-    #     """
-    #     Searching for a node with a particular value that does not exist in the
-    #     linked list returns None.
-    #     """
-    #     ll = LinkedList()
-    #     second_node = LinkedList("FAKE")
-    #     self.assertEqual(None, ll.search("X"))
+    def test_search_returns_none_when_not_found(self):
+        """
+        Searching for a node with a particular value that does not exist in the
+        linked list returns None.
+        """
+        ll = LinkedList()
+        second_node = LinkedList("FAKE")
+        self.assertEqual(None, ll.search("X"))
 
-    # def test_search_returns_node_when_found(self):
-    #     """
-    #     Searching for a node with a particular value returns that node, if it
-    #     exists in the linked list.
-    #     """
-    #     value = "FAKE"
-    #     ll = LinkedList()
-    #     second_node = LinkedList(value)
-    #     ll.append(second_node)
-    #     self.assertEqual(second_node, ll.search(value))
+    def test_search_returns_node_when_found(self):
+        """
+        Searching for a node with a particular value returns that node, if it
+        exists in the linked list.
+        """
+        value = "FAKE"
+        ll = LinkedList()
+        second_node = LinkedList(value)
+        ll.append(second_node)
+        self.assertEqual(second_node, ll.search(value))
 
-    # """
-    # Maintaining Order
-    # """
+    """
+    Maintaining Order
+    """
 
-    # def test_insert_in_order_when_empty(self):
-    #     """
-    #     Inserting a node in an empty sorted list just appends the new node.
-    #     """
-    #     ll = LinkedList()
-    #     ll.insert_in_order(LinkedList(8))
-    #     self.assertEqual(None, ll.at(0).value)
-    #     self.assertEqual(8, ll.at(1).value)
+    def test_insert_in_order_when_empty(self):
+        """
+        Inserting a node in an empty sorted list just appends the new node.
+        """
+        ll = LinkedList()
+        ll.insert_in_order(LinkedList(8))
+        self.assertEqual(None, ll.at(0).value)
+        self.assertEqual(8, ll.at(1).value)
 
-    # def test_insert_in_order_less_than(self):
-    #     """
-    #     Inserting a node in a sorted list when the node's value is less than an
-    #     existing node's value places the new node before the existing one.
-    #     Example: None -> 8 becomes None -> 6 -> 8
-    #     """
-    #     ll = LinkedList()
-    #     ll.insert_in_order(LinkedList(8))
-    #     ll.insert_in_order(LinkedList(6))
-    #     self.assertEqual(6, ll.at(1).value)
+    def test_insert_in_order_less_than(self):
+        """
+        Inserting a node in a sorted list when the node's value is less than an
+        existing node's value places the new node before the existing one.
+        Example: None -> 8 becomes None -> 6 -> 8
+        """
+        ll = LinkedList()
+        ll.insert_in_order(LinkedList(8))
+        ll.insert_in_order(LinkedList(6))
+        self.assertEqual(6, ll.at(1).value)
 
-    # def test_insert_in_order_greater_than(self):
-    #     """
-    #     Inserting a node in a sorted list when the node's value is greater than
-    #     an existing node's value places the new node after te existing one.
-    #     Example: None -> 8 becomes None -> 8 -> 9
-    #     """
-    #     ll = LinkedList()
-    #     ll.insert_in_order(LinkedList(8))
-    #     ll.insert_in_order(LinkedList(9))
-    #     self.assertEqual(9, ll.at(2).value)
+    def test_insert_in_order_greater_than(self):
+        """
+        Inserting a node in a sorted list when the node's value is greater than
+        an existing node's value places the new node after the existing one.
+        Example: None -> 8 becomes None -> 8 -> 9
+        """
+        ll = LinkedList()
+        ll.insert_in_order(LinkedList(8))
+        ll.insert_in_order(LinkedList(9))
+        self.assertEqual(9, ll.at(2).value)
 
-    # def test_insert_in_order_maintains_order_of_values(self):
-    #     """
-    #     Inserting nodes of arbitrary values results in the list maintaining the
-    #     sorted order of nodes based on their value.
-    #     Example: inserting 8, 6, 7, 5, 3, 0, 9 results in: 0, 3, 5, 6, 7, 8, 9
-    #     """
-    #     values = [8, 6, 7, 5, 3, 0, 9]
-    #     ll = LinkedList()
-    #     for value in values:
-    #         ll.insert_in_order(LinkedList(value))
-    #     self.assertEqual(None, ll.at(0).value)
-    #     self.assertEqual(0, ll.at(1).value)
-    #     self.assertEqual(3, ll.at(2).value)
-    #     self.assertEqual(5, ll.at(3).value)
-    #     self.assertEqual(6, ll.at(4).value)
-    #     self.assertEqual(7, ll.at(5).value)
-    #     self.assertEqual(8, ll.at(6).value)
-    #     self.assertEqual(9, ll.at(7).value)
+    def test_insert_in_order_maintains_order_of_values(self):
+        """
+        Inserting nodes of arbitrary values results in the list maintaining the
+        sorted order of nodes based on their value.
+        Example: inserting 8, 6, 7, 5, 3, 0, 9 results in: 0, 3, 5, 6, 7, 8, 9
+        """
+        values = [8, 6, 7, 5, 3, 0, 9]
+        ll = LinkedList()
+        for value in values:
+            ll.insert_in_order(LinkedList(value))
+        self.assertEqual(None, ll.at(0).value)
+        self.assertEqual(0, ll.at(1).value)
+        self.assertEqual(3, ll.at(2).value)
+        self.assertEqual(5, ll.at(3).value)
+        self.assertEqual(6, ll.at(4).value)
+        self.assertEqual(7, ll.at(5).value)
+        self.assertEqual(8, ll.at(6).value)
+        self.assertEqual(9, ll.at(7).value)
 
 
 def fake_value():
