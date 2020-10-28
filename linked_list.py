@@ -41,15 +41,19 @@ class LinkedList:
             self.prev = item
             item.next = self
             item.prev = self
-            return
-        if self.is_last():
-            temp = self.next
-            self.next = item
-            item.next = temp
-            item.prev = self
-            item.next.prev = item
-            return
-        self.next.append(item)
+        else:
+            self.prev.next = item
+            item.prev = self.prev
+            item.next = self
+            self.prev = item
+        # if self.is_last():
+        #     temp = self.next
+        #     self.next = item
+        #     item.next = temp
+        #     item.prev = self
+        #     item.next.prev = item
+        #     return
+        # self.next.append(item)
 
     def delete(self):
         self.prev.next = self.next
